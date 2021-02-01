@@ -77,7 +77,7 @@ int main(int argc, char* argv[]) {
                 for(int i=0; i<flow_count; i++) {
                     if(htonl(etharp->arp_.sip_) == flow[i].arp_.sip_) {
                         cout << "Arp infect" << '\n';
-                        flow[i].arp_.smac_ = etharp->arp_.smac_;
+                        flow[i].eth_.smac_ = etharp->arp_.smac_;
                         arp_reply(attacker_mac, flow[i].eth_.smac_, flow[i].arp_.sip_, flow[i].arp_.tip_, handle);
                         continue;
                     }
